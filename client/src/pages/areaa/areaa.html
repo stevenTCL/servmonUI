@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Area A: App 1</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <h2>Welcome to Ionic!</h2> -->
+  <ion-card *ngFor="let machine of machines">
+    <!-- If error occurs -->
+    <ion-card-header class="alertBg" *ngIf="alertTriggered(machine)">
+      <ion-grid class="noPadding">
+      <button (click)="toggleDetails(machine)" class="noPadding alertBg">
+        <ion-row>
+          <ion-col width-75 class="title-size">{{machine.name}}</ion-col>
+          <ion-col width-25>
+            <p class="statusErr">● Stop</p>
+          </ion-col>
+        </ion-row></button>
+      </ion-grid>
+    </ion-card-header>
+
+    <ion-card-header  *ngIf="!alertTriggered(machine)">
+      <ion-grid class="noPadding">
+        <button (click)="toggleDetails(machine)" class="noPadding">
+          <ion-row>
+            <ion-col width-75 class="title-size">{{machine.name}}</ion-col>
+            <ion-col width-25>
+              <p class="statusRun">● Running</p>
+            </ion-col>
+          </ion-row>
+        </button>
+      </ion-grid>
+    </ion-card-header>
+
+    <ion-card-content class="greyBg" *ngIf="machine.showDetails">
+      <ion-grid>
+        <button ion-item (click)="changePage($event, CPUPage)">
+          <ion-row>
+            <ion-col width-25>
+              <h3>CPU: </h3>
+            </ion-col>
+            <ion-col width-75 class="noPadding">
+            <progress-bar [progress]="machine.data.CPU" class="alertBg" *ngIf="numState(machine.data.CPU) === 2"></progress-bar>
+              <progress-bar [progress]="machine.data.CPU" class="warningBg" *ngIf="numState(machine.data.CPU) === 1"></progress-bar>
+              <progress-bar [progress]="machine.data.CPU" class="normalBg" *ngIf="numState(machine.data.CPU) === 0"></progress-bar>
+            </ion-col>
+          </ion-row>
+        </button>
+        <button ion-item (click)="changePage($event, StoragePage)">
+          <ion-row>
+            <ion-col width-25>
+              <h3>Storage: </h3>
+            </ion-col>
+            <ion-col width-75 class="noPadding">
+              <progress-bar [progress]="machine.data.storage" class="alertBg" *ngIf="numState(machine.data.storage) === 2"></progress-bar>
+              <progress-bar [progress]="machine.data.storage" class="warningBg" *ngIf="numState(machine.data.storage) === 1"></progress-bar>
+              <progress-bar [progress]="machine.data.storage" class="normalBg" *ngIf="numState(machine.data.storage) === 0"></progress-bar>
+            </ion-col>
+          </ion-row>
+        </button>
+        <button ion-item (click)="changePage($event, RAMPage)">
+          <ion-row>
+            <ion-col width-25>
+              <h3>RAM: </h3>
+            </ion-col>
+            <ion-col width-75 class="noPadding">
+              <progress-bar [progress]="machine.data.RAM" class="alertBg" *ngIf="numState(machine.data.RAM) === 2"></progress-bar>
+              <progress-bar [progress]="machine.data.RAM" class="warningBg" *ngIf="numState(machine.data.RAM) === 1"></progress-bar>
+              <progress-bar [progress]="machine.data.RAM" *ngIf="numState(machine.data.RAM) === 0"></progress-bar>
+            </ion-col>
+          </ion-row>
+        </button>
+        <ion-list>
+          <ion-item *ngFor="let process of machine.data.processes">
+            <ion-grid>
+              <button (click)="changePage($event, ProcessPage)">
+                <ion-row>
+                  <ion-col width-80>
+                    <h2>{{process.name}}</h2>
+                  </ion-col>
+                  <ion-col width-20 *ngIf="process.status">
+                    <h2><p class="statusRun">● On</p></h2>
+                  </ion-col>
+                  <ion-col width-20 *ngIf="!process.status">
+                    <h2><p class="statusErr">● Off</p></h2>
+                  </ion-col>
+                </ion-row>
+              </button>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
+
+<!--   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Recent Activities
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<h3 *ngIf="getNumOfLog() === 0">No Recent Activity found.</h3>
+	<div *ngFor="let msg of log">
+		<ion-card class="normalBg" *ngIf="isNormal(msg)">
+			<ion-card-header class="greenFont">
+				{{msg.nature}} - {{msg.time}}
+			</ion-card-header>
+			<ion-card-content>
+			   <ion-grid><ion-row><ion-col width-100>{{msg.desc}}</ion-col></ion-row></ion-grid>
+			</ion-card-content>
+		</ion-card>
+		<ion-card class="alertBg" *ngIf="isAlert(msg)">
+			<ion-card-header class="redFont">
+				{{msg.nature}} - {{msg.time}}
+			</ion-card-header>
+			<ion-card-content>
+			   <ion-grid><ion-row><ion-col width-100>{{msg.desc}}</ion-col></ion-row></ion-grid>
+			</ion-card-content>
+		</ion-card>
+		<ion-card class="warningBg" *ngIf="isWarning(msg)">
+			<ion-card-header class="orangeFont">
+				{{msg.nature}} - {{msg.time}}
+			</ion-card-header>
+			<ion-card-content>
+			   <ion-grid><ion-row><ion-col width-100>{{msg.desc}}</ion-col></ion-row></ion-grid>
+			</ion-card-content>
+		</ion-card>
+	</div>
+</ion-content>

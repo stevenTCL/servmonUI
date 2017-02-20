@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{name}}: RAM
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div id="chart-RAM"></div>
+  <br>
+  <ion-list>
+    <ion-list-header>
+      <h2>Attributes</h2>
+    </ion-list-header>
+    <ion-item>
+      <p>Total Free Memory:</p>
+      <div class="right-align">{{RAM.totalMemory}}</div>
+    </ion-item>
+    <ion-item>
+      <p>Buffers/Catched Memory:</p>
+      <div class="right-align">{{RAM.buffers}}</div>
+    </ion-item>
+    <ion-item>
+      <p>Swap Usage:</p>
+      <div class="right-align">{{RAM.swapUsage}}</div>
+    </ion-item>
+  </ion-list>
+</ion-content>
