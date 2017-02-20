@@ -1,0 +1,63 @@
+page-areaa {
+
+}
+
+button {
+	background-color: transparent;
+	text-align: left;
+}
+
+/*.item-md {
+	background-color: transparent;
+}*/
+
+.card-content-ios {
+	padding: 0px;
+}
+
+.card-ios {
+    margin: 0px;
+    width: calc(100%);
+}
+
+p.statusRun {
+	color: #04882b;
+    font-weight: 600;
+}
+
+p.statusErr {
+	color: red;
+    font-weight: 600;
+}
+
+.alertBg {
+	.progress-inner {
+		background: linear-gradient(to right, #ffbbbb , white);
+	}
+}
+
+.warningBg {
+	.progress-inner {
+	  background: linear-gradient(to right, #ffd08f , white);
+	}
+}
+
+.title-size {
+	font-size: 18px;
+}
+
+.left-align {
+	text-align: left;
+}
+
+.center-align {
+	text-align: center;
+}
+
+.noPadding {
+	padding: 0px;
+}
+
+.greyBg {
+	background: #f7f7f7;
+}

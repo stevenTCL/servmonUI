@@ -1,0 +1,19 @@
+page-RAM {
+
+}
+
+.right-align {
+	text-align: right;
+}
+
+.alertBg {
+	.progress-inner {
+		background: linear-gradient(to right, #ffbbbb , white);
+	}
+}
+
+.warningBg {
+	.progress-inner {
+	  background: linear-gradient(to right, #ffd08f , white);
+	}
+}

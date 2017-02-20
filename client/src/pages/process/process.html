@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{process.name}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      <h2>Attributes</h2>
+    </ion-list-header>
+    <ion-item>
+    	<p>Process ID: </p>
+    	<div class="right-align">{{process.PID}}
+    	</div>
+    </ion-item>
+		<ion-item>
+			<p>Real UID and Real UID: </p>
+			<div class="right-align"> {{process.UIDs}}</div>
+		</ion-item>
+		<ion-item>
+			<p>Effectived GUID and Real GUID: </p>
+			<div class="right-align"> {{process.GUIDs}}</div>
+		</ion-item>
+		<ion-item>
+			<p>CPU Occupied: </p><br>
+			<div>
+				<progress-bar [progress]="process.CPUOccupied" class="alertBg" *ngIf="numState(process.CPUOccupied) === 2"></progress-bar>
+				<progress-bar [progress]="process.CPUOccupied" class="warningBg" *ngIf="numState(process.CPUOccupied) === 1"></progress-bar>
+				<progress-bar [progress]="process.CPUOccupied" *ngIf="numState(process.CPUOccupied) === 0"></progress-bar>
+			</div>
+		</ion-item>
+		<ion-item>
+			<p>RAM Occupied: </p>
+			<div class="right-align">{{process.RAMOccupied}}</div>
+		</ion-item>
+  </ion-list>
+</ion-content>

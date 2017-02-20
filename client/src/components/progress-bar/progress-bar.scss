@@ -1,0 +1,19 @@
+progress-bar {
+ 
+    .progress-outer {
+        width: 96%;
+        text-align: center;
+        background-color: #f4f4f4;
+        border: 1px solid #dcdcdc;
+        color: #000;
+        font-size: 14px;
+    }
+ 
+    .progress-inner {
+        min-width: 0%;
+        white-space: nowrap;
+        overflow: visible;
+        background: linear-gradient(to right, #8ae4a5 , #bdffc8);
+    }
+ 
+}
