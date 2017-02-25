@@ -10,10 +10,10 @@ declare var FusionCharts;
 })
 export class RAMPage {
 	RAM;
-	name: String;
+	hostname: String;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.RAM = navParams.get('machine').data.RAMData; 
-  	this.name = navParams.get('machine').name;
+  	this.hostname = navParams.get('machine').hostname;
   	FusionCharts.ready(function() {
       var revenueChart = new FusionCharts({
         type: 'line',

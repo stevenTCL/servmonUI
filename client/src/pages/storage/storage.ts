@@ -14,10 +14,10 @@ import { NavController, NavParams } from 'ionic-angular';
 export class StoragePage {
 
 	partitions = [];
-  name: String;
+  hostname: String;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  	this.partitions = navParams.get('machine').data.storagePartitions; 
-    this.name = navParams.get('machine').name;
+  	this.partitions = navParams.get('machine').data.storageData.storagePartitions; 
+    this.hostname = navParams.get('machine').hostname;
   }
 
   // Buggy Function ! only use when "XXXGB/YYYYGB"

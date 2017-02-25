@@ -12,7 +12,7 @@
       <ion-grid class="noPadding">
       <button (click)="toggleDetails(machine)" class="noPadding alertBg">
         <ion-row>
-          <ion-col width-75 class="title-size">{{machine.name}}</ion-col>
+          <ion-col width-75 class="title-size">{{machine.hostname}}</ion-col>
           <ion-col width-25>
             <p class="statusErr">● Stop</p>
           </ion-col>
@@ -24,7 +24,7 @@
       <ion-grid class="noPadding">
         <button (click)="toggleDetails(machine)" class="noPadding">
           <ion-row>
-            <ion-col width-75 class="title-size">{{machine.name}}</ion-col>
+            <ion-col width-75 class="title-size">{{machine.hostname}}</ion-col>
             <ion-col width-25>
               <p class="statusRun">● Running</p>
             </ion-col>

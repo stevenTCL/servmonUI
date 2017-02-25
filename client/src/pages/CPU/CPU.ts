@@ -10,10 +10,10 @@ declare var FusionCharts;
 })
 export class CPUPage {
 	CPUData;
-  name: String;
+  hostname: String;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.CPUData = navParams.get("machine").data.CPUData;
-    this.name = navParams.get('machine').name;
+    this.hostname = navParams.get('machine').hostname;
     FusionCharts.ready(function() {
       var revenueChart = new FusionCharts({
         type: 'line',

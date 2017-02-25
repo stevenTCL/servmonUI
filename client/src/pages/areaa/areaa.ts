@@ -19,7 +19,7 @@ export class AreaA {
   machines = [];
   constructor(public navCtrl: NavController) {
     this.machines = [{
-    	name: "Machine 1",
+    	hostname: "Machine 1",
       status: false,
       showDetails: false,
       data: {
@@ -55,23 +55,25 @@ export class AreaA {
               "value": "19%"
             }
           ],
-          CPUs: [{
-            name: "1st CPU",
+          cores: [{
+            name: "Core 1",
             usage: "20%",
             frequency: "1000MHz"
           },{
-            name: "2nd CPU",
+            name: "Core 2",
             usage: "30%",
             frequency: "1200MHz"
           }]
         },
         storage: "80%",
-        storagePartitions: [{
-          name: "Partition",
-          filesystem:"/dev/sda1",
-          mountPt:"/",
-          storage: "600GB/1000GB"
-        }],
+        storageData: {
+          storagePartitions: [{
+            name: "Partition",
+            filesystem:"/dev/sda1",
+            mountPt:"/",
+            storage: "600GB/1000GB"
+          }]
+        },
         RAM: "65%",
         RAMData: {
           histRec:[
@@ -119,7 +121,7 @@ export class AreaA {
         }]
       }
     },{
-      name: "Machine 2",
+      hostname: "Machine 2",
       status: true,
       showDetails: false,
       data: {
