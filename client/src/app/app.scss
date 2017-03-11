@@ -1,5 +1,48 @@
 // http://ionicframework.com/docs/v2/theming/
 
+// Style for color and progressBar
+// --------------------------------------------------
+
+p.statusRun {
+	color: #04882b;
+    font-weight: 600;
+}
+
+p.statusErr {
+	color: red;
+    font-weight: 600;
+}
+
+.alertBg {
+	.progress-inner {
+		background: linear-gradient(to right, #ffbbbb , white);
+	}
+}
+
+.warningBg {
+	.progress-inner {
+	  background: linear-gradient(to right, #ffd08f , white);
+	}
+}
+
+// general style
+// --------------------------------------------------
+
+.left-align {
+	text-align: left;
+}
+
+.center-align {
+	text-align: center;
+}
+
+.right-align {
+	text-align: right;
+}
+
+.noPadding {
+	padding: 0px;
+}
 
 // App Global Sass
 // --------------------------------------------------
