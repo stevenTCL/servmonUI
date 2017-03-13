@@ -21,7 +21,7 @@ export class MachineMetrics {
    
   }
 
-  getMetrics(detailMetrics: string[], hostname?: string): Observable<Metrics[]> {
+  getMetrics(detailMetrics: string[], hostname?: string, pid?: string): Observable<Metrics[]> {
 
     // Set the URL
     const url = 'http://localhost:5000/api/metrics'; 
@@ -38,6 +38,10 @@ export class MachineMetrics {
 
     if (hostname) {
       params.append('hostname', hostname);
+    }
+
+    if (pid) {
+      params.append('pid', pid);
     }
 
     const options = new RequestOptions({ headers: headers, search: params });
