@@ -13,28 +13,28 @@
     </ion-list-header>
     <ion-item>
     	<p>Process ID: </p>
-    	<div class="right-align">{{process.PID}}
+    	<div class="right-align">{{process.pid}}
     	</div>
     </ion-item>
 		<ion-item>
 			<p>Real UID and Real UID: </p>
-			<div class="right-align"> {{process.UIDs}}</div>
+			<div class="right-align"> {{process.uid}}</div>
 		</ion-item>
 		<ion-item>
 			<p>Effectived GUID and Real GUID: </p>
-			<div class="right-align"> {{process.GUIDs}}</div>
+			<div class="right-align"> {{process.guid}}</div>
 		</ion-item>
 		<ion-item>
 			<p>CPU Occupied: </p><br>
 			<div>
-				<progress-bar [progress]="process.CPUOccupied" class="alertBg" *ngIf="numState(process.CPUOccupied) === 2"></progress-bar>
-				<progress-bar [progress]="process.CPUOccupied" class="warningBg" *ngIf="numState(process.CPUOccupied) === 1"></progress-bar>
-				<progress-bar [progress]="process.CPUOccupied" *ngIf="numState(process.CPUOccupied) === 0"></progress-bar>
+				<progress-bar [progress]="process.cpuOccupied" class="alertBg" *ngIf="numState(process.cpuOccupied) === 2"></progress-bar>
+				<progress-bar [progress]="process.cpuOccupied" class="warningBg" *ngIf="numState(process.cpuOccupied) === 1"></progress-bar>
+				<progress-bar [progress]="process.cpuOccupied" *ngIf="numState(process.cpuOccupied) === 0"></progress-bar>
 			</div>
 		</ion-item>
 		<ion-item>
 			<p>RAM Occupied: </p>
-			<div class="right-align">{{process.RAMOccupied}}</div>
+			<div class="right-align">{{process.ramOccupied}}</div>
 		</ion-item>
   </ion-list>
 </ion-content>

@@ -22,7 +22,8 @@ export class ProcessPage {
     this.hostname = navParams.get('machine').hostname;
     this.pid = navParams.get('machine').pid;
     machineMetrics.getMetrics(['process'], this.hostname, this.pid).subscribe(metrics => {   
-      this.process = metrics[0].data.processData;
+      this.process = metrics[0].data.processData.processes[0];
+      console.log(this.process);
     });
   }
 
