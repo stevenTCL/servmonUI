@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { MachineMetrics } from '../../providers/machine-metrics';
 
 /*
   Generated class for the Process page.
@@ -13,10 +14,16 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProcessPage {
 
-	process = {};
+  process = {};
+  hostname: string;
+  pid: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  	this.process = navParams.get('machine').data.processes[0]; 
+  constructor(public navCtrl: NavController, public navParams: NavParams, private machineMetrics: MachineMetrics) {
+    this.hostname = navParams.get('machine').hostname;
+    this.pid = navParams.get('machine').pid;
+    machineMetrics.getMetrics(['process'], this.hostname, this.pid).subscribe(metrics => {   
+      this.process = metrics[0].data.processData;
+    });
   }
 
   numState(strNum) {

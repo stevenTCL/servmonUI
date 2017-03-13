@@ -1,19 +1,25 @@
 // This file defines the metric model used in the entire application
 
+interface HistRec {
+  label: string;
+  value: string;
+}
+
 interface CpuCore {
   frequency: string;
   name: string;
   usage: string;
+  histRec: HistRec[];
 }
 
 interface Process {
-  CPUOccupied: string;
-  GUID: string;
-  PID: string;
-  RAMOccupied: string;
-  UID: string;
-  name: string;
-  status: boolean;
+  cpuOccupied: string;
+  guid: string;
+  pid: string;
+  ramOccupied: string;
+  uid: string;
+  name?: string;
+  status?: boolean;
 }
 
 interface Partition {
@@ -23,7 +29,7 @@ interface Partition {
   storage: string;
 }
 
-export interface Metrics {
+interface MetricContent {
   hostname: string;
   status: boolean;
   process: boolean;
@@ -32,5 +38,9 @@ export interface Metrics {
   cpuData?: { cores: CpuCore[] };
   processData?: { processes: Process[] }; 
   storageData?: { storagePartitions: Partition[] };
-  ramData?: { buffer: string, swapUsage: string, totalMemory: string };
+  ramData?: { buffer: string, swapUsage: string, totalMemory: string, histRec: HistRec[] };
+}
+
+export interface Metrics {
+  data: MetricContent;
 }
