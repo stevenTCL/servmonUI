@@ -41,9 +41,9 @@
               <h3>CPU: </h3>
             </ion-col>
             <ion-col width-75 class="noPadding">
-            <progress-bar [progress]="machine.data.CPU" class="alertBg" *ngIf="numState(machine.data.CPU) === 2"></progress-bar>
-              <progress-bar [progress]="machine.data.CPU" class="warningBg" *ngIf="numState(machine.data.CPU) === 1"></progress-bar>
-              <progress-bar [progress]="machine.data.CPU" class="normalBg" *ngIf="numState(machine.data.CPU) === 0"></progress-bar>
+            <progress-bar [progress]="machine.data.cpu" class="alertBg" *ngIf="numState(machine.data.cpu) === 2"></progress-bar>
+              <progress-bar [progress]="machine.data.cpu" class="warningBg" *ngIf="numState(machine.data.cpu) === 1"></progress-bar>
+              <progress-bar [progress]="machine.data.cpu" class="normalBg" *ngIf="numState(machine.data.cpu) === 0"></progress-bar>
             </ion-col>
           </ion-row>
         </button>
@@ -65,14 +65,14 @@
               <h3>RAM: </h3>
             </ion-col>
             <ion-col width-75 class="noPadding">
-              <progress-bar [progress]="machine.data.RAM" class="alertBg" *ngIf="numState(machine.data.RAM) === 2"></progress-bar>
-              <progress-bar [progress]="machine.data.RAM" class="warningBg" *ngIf="numState(machine.data.RAM) === 1"></progress-bar>
-              <progress-bar [progress]="machine.data.RAM" *ngIf="numState(machine.data.RAM) === 0"></progress-bar>
+              <progress-bar [progress]="machine.data.ram" class="alertBg" *ngIf="numState(machine.data.ram) === 2"></progress-bar>
+              <progress-bar [progress]="machine.data.ram" class="warningBg" *ngIf="numState(machine.data.ram) === 1"></progress-bar>
+              <progress-bar [progress]="machine.data.ram" *ngIf="numState(machine.data.ram) === 0"></progress-bar>
             </ion-col>
           </ion-row>
         </button>
         <ion-list>
-          <ion-item *ngFor="let process of machine.data.processes">
+          <ion-item *ngFor="let process of machine.data.processData.processes">
             <ion-grid>
               <button (click)="changePage($event, ProcessPage)">
                 <ion-row>

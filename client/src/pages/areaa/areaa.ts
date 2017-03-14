@@ -6,6 +6,8 @@ import { RAMPage } from '../RAM/RAM';
 import { StoragePage } from '../storage/storage';
 import { ProcessPage } from '../process/process';
 
+import { Metrics } from '../../models/metrics';
+import { MachineMetrics } from '../../providers/machine-metrics';
 
 @Component({
   selector: 'page-areaa',
@@ -17,8 +19,11 @@ export class AreaA {
   StoragePage = StoragePage;
   ProcessPage = ProcessPage;
   machines = [];
-  constructor(public navCtrl: NavController) {
-    this.machines = [{
+  constructor(public navCtrl: NavController, private machineMetrics: MachineMetrics) {
+    machineMetrics.getMetrics([]).subscribe(metrics => {
+      this.machines = metrics;
+    });
+      /*this.machines = [{
     	hostname: "Machine 1",
       status: false,
       showDetails: false,
@@ -197,7 +202,7 @@ export class AreaA {
         
         }]
       }
-    }];
+    }];*/
   }
 
   changePage(event, SecondPage) {
@@ -217,7 +222,7 @@ export class AreaA {
   alertTriggered(machine) {
     if (machine.status === false)
       return true;
-    if (machine.data.processes[0].status === false)
+    if (machine.process === false)
       return true;
     //TODO: if data > 80% return true
 

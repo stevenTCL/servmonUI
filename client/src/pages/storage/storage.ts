@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { MachineMetrics } from '../../providers/machine-metrics';
 
 /*
   Generated class for the Storage page.
@@ -7,17 +8,20 @@ import { NavController, NavParams } from 'ionic-angular';
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+
 @Component({
   selector: 'page-storage',
   templateUrl: 'storage.html'
 })
 export class StoragePage {
 
-	partitions = [];
-  hostname: String;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  	this.partitions = navParams.get('machine').data.storageData.storagePartitions; 
+  partitions = [];
+  hostname: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private machineMetrics: MachineMetrics) {
     this.hostname = navParams.get('machine').hostname;
+    machineMetrics.getMetrics(['storage'], this.hostname).subscribe(metrics => {
+      this.partitions = metrics[0].data.storageData.storagePartitions;
+    })
   }
 
   // Buggy Function ! only use when "XXXGB/YYYYGB"
