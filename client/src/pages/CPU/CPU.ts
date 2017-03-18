@@ -17,7 +17,6 @@ export class CPUPage {
     machineMetrics.getMetrics(['cpu'], this.hostname).subscribe(metrics => {
       this.CPUData = metrics[0].data.cpuData; 
       let cpuData = this.CPUData;
-      console.log(cpuData);
       FusionCharts.ready(function() {
         let revenueChart = new FusionCharts({
           type: 'line',

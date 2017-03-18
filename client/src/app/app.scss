@@ -2,15 +2,35 @@
 
 // Style for color and progressBar
 // --------------------------------------------------
+$type:ocean;
+
+p.status {
+	font-weight: 600;
+  @if $type == ocean {
+    color: red;			// Red
+  } @else {
+    color: #04882b;	// Green
+  } 
+}
+
+.bg {
+	.progress-inner {
+		@if $type == x {
+			background: linear-gradient(to right, #ffbbbb , white); // red
+		} @else {
+			background: linear-gradient(to right, #ffd08f , white); // yellow
+		}
+	}
+}
 
 p.statusRun {
 	color: #04882b;
-    font-weight: 600;
+  font-weight: 600;
 }
 
 p.statusErr {
 	color: red;
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .alertBg {

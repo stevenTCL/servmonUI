@@ -1,6 +1,6 @@
 <ion-tabs>
 	<ion-tab [root]="tab1Root" tabTitle="Recent" tabIcon="time"></ion-tab>
-  <ion-tab *ngFor="let area of areas" [root]="area.page" tabTitle={{area.title}} tabIcon="laptop"></ion-tab>
-  <!-- <ion-tab [root]="tab2Root" tabTitle="Area B" tabIcon="laptop"></ion-tab> -->
+  <!-- <ion-tab *ngFor="let area of areas" [root]="area.page" tabTitle={{area.title}} tabIcon="laptop"></ion-tab> -->
+  <ion-tab [root]="areas[0].page" tabTitle="Area A" tabIcon="laptop"></ion-tab>
   <!-- <ion-tab [root]="tab3Root" tabTitle="Area C" tabIcon="laptop"></ion-tab> -->
 </ion-tabs>
