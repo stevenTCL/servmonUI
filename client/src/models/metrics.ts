@@ -31,6 +31,7 @@ interface Partition {
 
 interface MetricContent {
   hostname: string;
+  ip: string;
   status: boolean;
   process: boolean;
   ram: string;

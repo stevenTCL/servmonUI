@@ -12,6 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
 import { MachineMetrics } from '../providers/machine-metrics';
+import { MachineHosts } from '../providers/machine-hosts';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,6 @@ import { MachineMetrics } from '../providers/machine-metrics';
     LogPage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, MachineMetrics]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, MachineMetrics, MachineHosts]
 })
 export class AppModule {}
