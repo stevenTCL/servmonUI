@@ -24,7 +24,9 @@ export class AreaA {
   constructor(public navCtrl: NavController, private machineHosts: MachineHosts, private machineMetrics: MachineMetrics) {
     machineHosts.getHosts().subscribe(hosts => {
       this.machines = hosts;
-
+      for (let machine of this.machines) {
+         machine.showDetails = false
+      }
     });
   }
 
@@ -39,7 +41,8 @@ export class AreaA {
         machine.showDetails = false;
     } else {
         this.machineMetrics.getMetrics([],machine.hostname).subscribe(metrics => {
-          machine = metrics[0];
+          // Assign the values of metrics[0] to machine
+          Object.assign(machine, metrics[0]);
           console.log(metrics);
           machine.showDetails = true;
         });
